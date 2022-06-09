@@ -31,19 +31,18 @@ ul {
 }
 
 .btn {
-  border: none;
+  border: 3px solid #2177e9;;
   padding: 14px 0;
   border-radius: 4px;
   width: 100%;
-  color: #fff;
-  background-color: var(--color-accent);
+  color: #000000;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
 }
 
 .btn:hover {
-  background-color: #6078f1;
-  transition: background-color 0.3s ease-in-out;
+  background-color: #2177e9;
+  transition: background-color 0.2s ease-in-out;
 }
 
 .btn:disabled {
