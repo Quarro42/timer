@@ -1,3 +1,4 @@
+const content = document.querySelector('.time-count__content');
 const daysVal = document.querySelector('.time-count__days .time-count__val');
 const hoursVal = document.querySelector('.time-count__hours .time-count__val');
 const minutesVal = document.querySelector('.time-count__minutes .time-count__val');
@@ -9,7 +10,7 @@ const minutesText = document.querySelector('.time-count__minutes .time-count__te
 const secondsText = document.querySelector('.time-count__seconds .time-count__text');
 
 const evtNameInput = document.getElementById("evt");
-const evtNameBtn = document.querySelector(".evt-btn")
+const evtNameBtn = document.querySelector(".evt-btn");
 const date = document.getElementById("date");
 const dateBtn = document.querySelector(".date-btn");
 const title = document.querySelector(".time-count__title");
@@ -29,15 +30,19 @@ const timeCount = () => {
   let minutes = Math.floor(leftUntil / 1000 / 60) % 60;
   let seconds = Math.floor(leftUntil / 1000) % 60;
 
-  daysVal.textContent = days > 9 ? days : '0' + days;
-  hoursVal.textContent = hours > 9 ? hours : '0' + hours;
-  minutesVal.textContent = minutes > 9 ? minutes : '0' + minutes;
-  secondsVal.innerText = seconds > 9 ? seconds : '0' + seconds;
+  if (leftUntil < 0) {
+    content.innerText = 'Event ended'
+  } else {
+    daysVal.textContent = days > 9 ? days : '0' + days;
+    hoursVal.textContent = hours > 9 ? hours : '0' + hours;
+    minutesVal.textContent = minutes > 9 ? minutes : '0' + minutes;
+    secondsVal.innerText = seconds > 9 ? seconds : '0' + seconds;
 
-  daysText.textContent = declOfNum(days, ['день', 'дня', 'дней']);
-  hoursText.textContent = declOfNum(hours, ['час', 'часа', 'часов']);
-  minutesText.textContent = declOfNum(minutes, ['минута', 'минуты', 'минут']);
-  secondsText.textContent = declOfNum(seconds, ['секунда', 'секунды', 'секунд']);
+    daysText.textContent = declOfNum(days, ['день', 'дня', 'дней']);
+    hoursText.textContent = declOfNum(hours, ['час', 'часа', 'часов']);
+    minutesText.textContent = declOfNum(minutes, ['минута', 'минуты', 'минут']);
+    secondsText.textContent = declOfNum(seconds, ['секунда', 'секунды', 'секунд']);
+  }
 } 
 
 evtNameBtn.addEventListener('click', ()=> {
