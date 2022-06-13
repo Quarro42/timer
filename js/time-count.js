@@ -1,4 +1,5 @@
 const content = document.querySelector('.time-count__content');
+
 const daysVal = document.querySelector('.time-count__days .time-count__val');
 const hoursVal = document.querySelector('.time-count__hours .time-count__val');
 const minutesVal = document.querySelector('.time-count__minutes .time-count__val');
@@ -15,7 +16,7 @@ const date = document.getElementById("date");
 const dateBtn = document.querySelector(".date-btn");
 const title = document.querySelector(".time-count__title");
 
-let someEvent;
+let someEvent = new Date().getTime() + 604800000;
 
 function declOfNum(number, titles) {  
   let cases = [2, 0, 1, 1, 1, 2];  
@@ -55,7 +56,11 @@ dateBtn.addEventListener('click', () => {
   if (!isNaN(currentDate) && currentDate - now > 0) {
     someEvent = currentDate;
     setInterval(timeCount, 1000);
+    modal.classList.remove('modal-open');
   } else {
     alert('Incorrect date!');
   }
 })
+
+timeCount();
+setInterval(timeCount, 1000);
